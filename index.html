@@ -1,33 +1,26 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Wordle starting word</title>
-        <script src="wordull.js"></script>
-        <style>
-            .correct-letter {
-                background-color: #538d4e;
-                color: #f8f8f8;
-                text-transform: uppercase;
-                justify-content: center;
-                align-items: center;
-                display: inline-flex;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-size: xx-large;
-                font-weight: 700;
-                line-height: 32px;
-                height: 52px;
-                width: 52px;
-            }
-        </style>
-    </head>
-    <body style="background-color: black; color: lightgray;" onload="doThing()" >
-        <center>
-            <!-- <h1 id="word">😬</h1> -->
+
+<head>
+    <title>Wordle starting word</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="wordull.js"></script>
+</head>
+
+<body onload="doFrontPage()">
+    <center>
+        <a id="definition" href="" target="_blank">
             <div id="letter0" class="correct-letter">-</div>
             <div id="letter1" class="correct-letter">-</div>
             <div id="letter2" class="correct-letter">-</div>
             <div id="letter3" class="correct-letter">-</div>
             <div id="letter4" class="correct-letter">-</div>
-            <h2>Starting word for <strong><span style="color: #b59f3b;" id="date"></span></strong></h3>
-        </center>
-    </body>
+        </a>
+        <h2>
+            Starting word for <a class="datelink" id="datelink" href="history.html" target="_blank"><strong><span
+                        class="partial-color" id="date"></span></strong></a>
+        </h2>
+    </center>
+</body>
+
 </html>

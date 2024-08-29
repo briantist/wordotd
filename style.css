@@ -1,0 +1,51 @@
+.correct-letter {
+    background-color: #538d4e;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    font-size: xx-large;
+    font-weight: 700;
+    line-height: 32px;
+    height: 52px;
+    width: 52px;
+}
+
+.partial-color {
+    color: #b59f3b;
+}
+
+body {
+    background-color: black;
+    color: lightgray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.past-words {
+    border-collapse: collapse;
+    margin: 25px;
+}
+
+.past-words th,
+.past-words tr,
+.past-words td {
+    padding: 12px 15px;
+}
+
+.past-words tbody tr {
+    border-bottom: thin solid lightgray;
+}
+
+.past-words tbody tr:nth-of-type(even) {
+    background-color: #202020;
+}
+
+a.datelink {
+    text-decoration: none;
+}
+
+a.datelink:hover {
+    text-decoration: underline;
+    text-decoration-color: #b59f3b;
+}
