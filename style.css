@@ -22,6 +22,11 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+body a {
+    text-decoration: none;
+    color: #538d4e;
+}
+
 .past-words {
     border-collapse: collapse;
     margin: 25px;
