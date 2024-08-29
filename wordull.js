@@ -46,10 +46,10 @@ function getQueryVariable(variable) {
 
 function getRequestedDate() {
     // https://stackoverflow.com/a/31732581/3905079
-    var date = getQueryVariable('date').replace(/-/g, '\/')
+    var date = getQueryVariable('date')
     if (date) {
         try {
-            d = new Date(date)
+            d = new Date(date.replace(/-/g, '\/'))
             // https://stackoverflow.com/a/1353711/3905079
             if (d instanceof Date && !isNaN(d)) {
                 return d
