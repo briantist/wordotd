@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>all</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="wordull.js"></script>
+    <script>
+        async function all() {
+            v1 = getWordList(url = "words/v1.txt")
+            v2 = getWordList(previous = v1, shuffle = true, url = "https://gist.githubusercontent.com/briantist/f23e2edfcb2d28a2cbb84fef93724f23/raw/6bfa15d263d6d5b63840a8e5b64e04b382fdb079/valid-wordle-words.txt")
+            document.getElementById("all").innerText = (await v2).join("\n")
+        }
+    </script>
+</head>
+
+<body onload="all()">
+    <pre id="all"></pre>
+</body>
+
+</html>

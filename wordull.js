@@ -1,22 +1,22 @@
-// https://stackoverflow.com/a/72732727/3905079
-function RNG(seed) {
-    var m = 2 ** 35 - 31
-    var a = 185852
-    var s = seed % m
-    return function () {
-        return (s = s * a % m) / m
-    }
-}
+// // https://stackoverflow.com/a/72732727/3905079
+// function RNG(seed) {
+//     var m = 2 ** 35 - 31
+//     var a = 185852
+//     var s = seed % m
+//     return function () {
+//         return (s = s * a % m) / m
+//     }
+// }
 
 // https://stackoverflow.com/a/2450976/3905079
-function shuffle(array, seed) {
+function shuffle(array) {
     let currentIndex = array.length;
 
     // While there remain elements to shuffle...
     while (currentIndex != 0) {
 
         // Pick a remaining element...
-        let randomIndex = Math.floor(RNG(seed)() * currentIndex);
+        let randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
 
         // And swap it with the current element.
@@ -67,15 +67,33 @@ function getRequestedDate() {
     }
 }
 
-async function getWordList(url = 'https://gist.githubusercontent.com/briantist/f23e2edfcb2d28a2cbb84fef93724f23/raw/6bfa15d263d6d5b63840a8e5b64e04b382fdb079/valid-wordle-words.txt') {
-    const seed = 22935094503.601917 // chosen by fair dice roll
-    return await fetch(url)
+// async function getWordList(url = 'https://gist.githubusercontent.com/briantist/f23e2edfcb2d28a2cbb84fef93724f23/raw/6bfa15d263d6d5b63840a8e5b64e04b382fdb079/valid-wordle-words.txt') {
+async function getWordList(url, previous = null, shuffle = false) {
+    // const seed = 22935094503.601917 // chosen by fair dice roll
+    thisurl = fetch(url)
         .then(res => res.text())
-        .then(txt => {
-            lines = txt.split(/\r?\n/)
-            shuffle(lines, seed)
-            return lines
-        })
+        .then(txt =>
+            txt.split(/\r?\n/)
+            // shuffle(lines)
+            // lines
+        )
+
+    if (previous != null) {
+        prev = await previous
+    }
+    else {
+        prev = []
+    }
+
+    lines = (await thisurl)
+    .filter(word => {
+        return Boolean(word)
+        && !prev.includes(word)
+    })
+    if (shuffle) {
+        shuffle(lines)
+    }
+    return lines
 }
 
 function getDateInfo(date = new Date()) {
